@@ -66,6 +66,7 @@ class App
         if (is_file($file)) {
             //  将数组打散，将键值 变成变量
             extract($this->data);
+            Twig_Autoloader::register();
             include $file;
         } else {
             throw new \Exception($file . '试图文件不存在');
