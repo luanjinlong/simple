@@ -2,26 +2,22 @@
 
 namespace Core\Lib;
 
+use Medoo\Medoo;
+
 /**
  * Model 类链接PDO
  * Class Model
  * @package Core\Lib
  */
-class Model extends \PDO
+class Model extends Medoo
 {
     /**
      * Model constructor.
      */
     public function __construct()
     {
-        $dns = Config::get('database', 'dns');
-        $username = Config::get('database', 'username');
-        $password = Config::get('database', 'password');
-        try {
-            parent::__construct($dns, $username, $password);
-        } catch (\PDOException $exception) {
-            dd($exception->getMessage());
-        }
+        $option = Config::get('database');
+        parent::__construct($option);
     }
 
 }

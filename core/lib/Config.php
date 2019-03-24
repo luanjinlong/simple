@@ -18,13 +18,16 @@ class Config
      * 3.缓存配置
      * 缓存的是文件名对应的键
      * @param $file
-     * @param  $name
+     * @param  $name null 则获取整个的配置文件数据
      * @return mixed
      * @throws \Exception
      */
-    public static function get($file, $name)
+    public static function get($file, $name = null)
     {
         if (isset(self::$configs[$file])) {
+            if ($name === null) {
+                return self::$configs[$file];
+            }
             if (!isset(self::$configs[$file][$name])) {
                 throw new \Exception($file . '配置文件中的' . $name . '变量不存在');
             }
@@ -38,6 +41,10 @@ class Config
         }
         $conf = require $file;
         self::$configs[$file] = $conf;
+
+        if ($name === null) {
+            return self::$configs[$file];
+        }
 
         if (isset($conf[$name])) {
             return $conf[$name];

@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\User;
 use core\App;
-use Core\Lib\Log;
 use Core\Lib\Model;
 use PDO;
 
@@ -22,8 +22,11 @@ class IndexController extends App
 //        $this->assgin('id', $row['id']);
 //        $this->display('index.php');
 
-        $log = new Log();
-        $log->log('33');
+        $user = new User();
+        dd($user->lists());
+
+//        $log = new Log();
+//        $log->log('33');
     }
 
     public function test()
