@@ -14,9 +14,9 @@ class Model extends \PDO
      */
     public function __construct()
     {
-        $dns = 'mysql:host=localhost;dbname=test';
-        $username = 'root';
-        $password = '666666';
+        $dns = Config::get('database', 'dns');
+        $username = Config::get('database', 'username');
+        $password = Config::get('database', 'password');
         try {
             parent::__construct($dns, $username, $password);
         } catch (\PDOException $exception) {
