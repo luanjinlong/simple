@@ -22,7 +22,7 @@ class Log
     {
         if (!$this->class) {
             $drive = Config::get('log', 'drive');
-            $class = '\core\lib\drive\log\\' . $drive;
+            $class = '\Core\lib\drive\log\\' . $drive;
             $this->class = new $class();
         }
     }
