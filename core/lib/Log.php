@@ -2,7 +2,6 @@
 
 namespace Core\Lib;
 
-use Core\Drive\Log\LogInterface;
 
 /**
  * 1.确定日志的存储方式
