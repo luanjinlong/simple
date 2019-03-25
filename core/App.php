@@ -23,7 +23,7 @@ class App
     public static function run()
     {
         $route = new Route();
-        $class = '/app/Controller/' . $route->controller;
+        $class = '/App/Controller/' . $route->controller;
         $class = str_replace('/', '\\', $class);
         $controller = new  $class();
         call_user_func([$controller, $route->action]);
