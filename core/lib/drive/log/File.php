@@ -39,6 +39,6 @@ class File implements LogInterface
         $message = $message . date('Y-m-d H:i:s');
         $file = $path . '/' . $file;
 //        dd($file);
-        file_put_contents($file, json_encode($message) . PHP_EOL, FILE_APPEND);
+        file_put_contents($file, json_encode($message,JSON_UNESCAPED_UNICODE) . PHP_EOL, FILE_APPEND);
     }
 }
