@@ -22,11 +22,21 @@ class App
      */
     public static function run()
     {
+          //  设置头部信息
+        self::setHeader();
+
         $route = new Route();
         $class = '/App/Controller/' . $route->controller;
         $class = str_replace('/', '\\', $class);
         $controller = new  $class();
         call_user_func([$controller, $route->action]);
+    }
+    
+      private static function setHeader()
+    {
+//        header("Content-type:text/html;Charset=utf8");
+        header("Content-type:application/json;Charset=utf8");
+        date_default_timezone_set('PRC');
     }
 
     /**
